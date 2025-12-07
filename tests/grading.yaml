@@ -1,0 +1,54 @@
+# Grading configuration for Lab 2.7: Call Recording
+
+assignment:
+  id: L2.7-recording
+  name: "Lab 2.7: Call Recording"
+  level: 2
+  type: lab
+  passing_score: 70
+
+checks:
+  - id: instantiate
+    name: "Agent Instantiation"
+    points: 20
+    type: instantiate
+    file: solution/agent.py
+  - id: swml_valid
+    name: "SWML Generation"
+    points: 20
+    type: swml_valid
+    file: solution/agent.py
+  - id: func_consent
+    name: "get_consent function"
+    points: 20
+    type: function_exists
+    file: solution/agent.py
+    function: get_consent
+  - id: func_payment
+    name: "collect_payment function"
+    points: 20
+    type: function_exists
+    file: solution/agent.py
+    function: collect_payment
+  - id: has_pay
+    name: "Pay Action Used"
+    points: 20
+    type: swml_contains
+    file: solution/agent.py
+    require:
+      - text: "pay"
+
+feedback:
+  pass: |
+    Excellent work! You've completed Lab 2.7: Call Recording.
+
+    **Next steps:**
+    - Review the concepts covered
+    - Continue to the next lab
+
+  fail: |
+    Some checks didn't pass. Review the requirements and try again.
+
+    **Tips:**
+    - Run `swaig-test solution/agent.py --list-tools` to verify functions
+    - Run `swaig-test solution/agent.py --dump-swml` to check SWML
