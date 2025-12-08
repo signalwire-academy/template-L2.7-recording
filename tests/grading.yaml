@@ -10,45 +10,63 @@ assignment:
 checks:
   - id: instantiate
     name: "Agent Instantiation"
-    points: 20
+    points: 15
     type: instantiate
     file: solution/agent.py
   - id: swml_valid
     name: "SWML Generation"
-    points: 20
+    points: 15
     type: swml_valid
     file: solution/agent.py
-  - id: func_consent
-    name: "get_consent function"
-    points: 20
-    type: function_exists
-    file: solution/agent.py
-    function: get_consent
-  - id: func_payment
-    name: "collect_payment function"
-    points: 20
-    type: function_exists
-    file: solution/agent.py
-    function: collect_payment
-  - id: has_pay
-    name: "Pay Action Used"
-    points: 20
+  - id: has_recording
+    name: "Recording Configured"
+    points: 15
     type: swml_contains
     file: solution/agent.py
     require:
-      - text: "pay"
+      - text: "record_call"
+  - id: func_consent
+    name: "handle_consent function"
+    points: 20
+    type: function_exists
+    file: solution/agent.py
+    function: handle_consent
+  - id: func_payment
+    name: "process_payment function"
+    points: 20
+    type: function_exists
+    file: solution/agent.py
+    function: process_payment
+  - id: payment_uses_pay
+    name: "Payment uses pay() action"
+    points: 15
+    type: exec
+    file: solution/agent.py
+    function: process_payment
+    args:
+      amount: "49.99"
+    expect:
+      stdout_contains:
+        - "pay"
 
 feedback:
   pass: |
     Excellent work! You've completed Lab 2.7: Call Recording.
 
+    You've learned how to:
+    - Configure call recording with stereo MP3
+    - Handle recording consent from callers
+    - Use pay() for PCI-compliant payment collection
+
     **Next steps:**
-    - Review the concepts covered
-    - Continue to the next lab
+    - Continue to Lab 2.8: Call Transfer
 
   fail: |
     Some checks didn't pass. Review the requirements and try again.
 
     **Tips:**
+    - Pass record_call=True, record_format="mp3", record_stereo=True to __init__
+    - handle_consent should use .record_call() action
+    - process_payment should use .pay() action
     - Run `swaig-test solution/agent.py --list-tools` to verify functions
     - Run `swaig-test solution/agent.py --dump-swml` to check SWML

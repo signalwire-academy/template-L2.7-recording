@@ -49,11 +49,12 @@ git push
 
 | Check | Points |
 |-------|--------|
-| Agent Instantiation | 20 |
-| SWML Generation | 20 |
-| get_consent function | 20 |
-| collect_payment function | 20 |
-| Pay Action Used | 20 |
+| Agent Instantiation | 15 |
+| SWML Generation | 15 |
+| Recording Configured | 15 |
+| handle_consent function | 20 |
+| process_payment function | 20 |
+| Payment uses pay() action | 15 |
 | **Total** | **100** |
 
 **Passing Score:** 70%
