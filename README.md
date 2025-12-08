@@ -64,4 +64,10 @@ See `reference/starter.py` for a boilerplate template.
 
 ---
 
+## Next Assignment
+
+Ready to continue? [**Start Lab 2.8: Call Transfer**](https://classroom.github.com/a/BTYfF4N0)
+
+---
+
 *SignalWire AI Agents Certification*
